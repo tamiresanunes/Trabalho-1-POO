@@ -4,7 +4,7 @@ package estudantes.entidades;
 import professor.entidades.Andar;
 import professor.entidades.Elevador;
 
-
+//EU VOU PIRAR
 /**
  * Classe que traz a lógica do algoritmo de uso do elevador.
  * <br><br>
