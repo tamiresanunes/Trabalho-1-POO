@@ -16,10 +16,15 @@ public class Ave extends Animal {
     public String getCorDasPenas() {
         return corDasPenas;
     }
+    
+    
+    public String andarAve(){
+        return "andando";
+    }
 
     @Override
     public String toString() {
-        return  +super.toString()+ "Ave [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + ", corDasPenas=" + corDasPenas + "]";
+        return "Ave [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + ", corDasPenas=" + corDasPenas + "]";
     }
 
 }

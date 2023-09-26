@@ -8,4 +8,18 @@ public class Anfibio extends Animal {
         super(id, nome, especie, andarDesejado, peso, temperaturaIdeal);
     }
     
+    public String andarAnfibio(){
+        return "andando";
+    }
+
+    public String nadarAnfibio(){
+        return "nadando";
+    }
+
+    @Override
+    public String toString() {
+        return "Anfibio [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + "]";
+    }
+
+    
 }
