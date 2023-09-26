@@ -1,4 +1,4 @@
-package estudantes.entidades;
+package entidades;
 
 
 import professor.entidades.Andar;

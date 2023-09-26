@@ -1,4 +1,4 @@
-package estudantes.entidades;
+package entidades;
 
 public class Anfibio {
     
