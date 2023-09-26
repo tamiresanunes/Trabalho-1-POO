@@ -10,7 +10,9 @@ public class AveVoadora extends Ave{
 
     @Override
     public String toString() {
-        return "AveVoadora [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + "]";
+        return "Ave Voadora ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie() + ", Andar Desejado: "
+                + getAndarDesejado() + ", Peso: " + getPeso() + "e Temperatura Ideal: " + getTemperaturaIdeal()
+                + "e, Cor das Penas: " + getCorDasPenas();
     }
 
     

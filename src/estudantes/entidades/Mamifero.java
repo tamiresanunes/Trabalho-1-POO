@@ -7,6 +7,11 @@ public abstract class Mamifero extends Animal{
             boolean peludo) {
         super(id, nome, especie, andarDesejado, peso, temperaturaIdeal);
         this.peludo = peludo;
+
+    }
+    public Boolean getPeludo(){
+        return false;
+
     }
 
     public boolean isPeludo() {

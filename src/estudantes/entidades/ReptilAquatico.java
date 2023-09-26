@@ -12,7 +12,8 @@ public class ReptilAquatico extends Reptil{
     }
     @Override
     public String toString() {
-        return "ReptilAquatico [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + "]";
+        return "Reptil Aquatico ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie() + ", Andar Desejado: "
+                + getAndarDesejado() + ", Peso: " + getPeso() + "e Temperatura Ideal: " + getTemperaturaIdeal();
     }
     
     
