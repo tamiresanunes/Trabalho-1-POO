@@ -77,6 +77,26 @@ public class Animal {
         return peso;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public int getAndarDesejado() {
+        return andarDesejado;
+    }
+
+    public int getTempoDeEspera() {
+        return tempoDeEspera;
+    }
+
+    public int getTemperaturaIdeal() {
+        return temperaturaIdeal;
+    }
+
     /**
      * Aumenta o tempo de espera um animal na fila quando passa um ciclo.
      * Esse é o tempo de espera na fila de um andar para embarcar no elevador.
@@ -97,4 +117,13 @@ public class Animal {
     public void aumentaEspera() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Animal [PACIENCIA_MAXIMA=" + PACIENCIA_MAXIMA + ", id=" + id + ", nome=" + nome + ", especie=" + especie
+                + ", peso=" + peso + ", andarDesejado=" + andarDesejado + ", tempoDeEspera=" + tempoDeEspera
+                + ", temperaturaIdeal=" + temperaturaIdeal + "]";
+    }
+
+    
 }
