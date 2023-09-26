@@ -1,8 +1,9 @@
 package professor.gui;
 
-import estudantes.entidades.Animal;
 import professor.entidades.Arca;
 import java.awt.Color;
+
+import entidades.Animal;
 
 /**
  * Simulador gráfico da arca de Noé.

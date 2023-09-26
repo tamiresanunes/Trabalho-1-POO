@@ -1,9 +1,10 @@
 package professor.entidades;
 
 
-import estudantes.entidades.Animal;
-import estudantes.entidades.Ascensorista;
 import java.util.Random;
+
+import entidades.Animal;
+import entidades.Ascensorista;
 import professor.gui.Simulador;
 
 

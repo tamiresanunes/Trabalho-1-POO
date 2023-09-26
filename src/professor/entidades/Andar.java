@@ -1,9 +1,10 @@
 package professor.entidades;
 
 
-import estudantes.entidades.Animal;
 import java.util.HashSet;
 import java.util.LinkedList;
+
+import entidades.Animal;
 
 /**
  * Classe que representa um andar da arca onde animais embarcam e desembarcam.
