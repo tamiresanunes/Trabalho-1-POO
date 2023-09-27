@@ -19,6 +19,15 @@ public class Peixe extends Animal {
     }
 
     @Override
+    public int hashCode() {// exemplo, não sei se está certo
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((corDasEscamas == null) ? 0 : corDasEscamas.hashCode());
+        result = prime * result + PACIENCIA_MAXIMA;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Peixe ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie() + ", Andar Desejado: "
                 + getAndarDesejado() + ", Peso: " + getPeso() + "e Temperatura Ideal: " + getTemperaturaIdeal()

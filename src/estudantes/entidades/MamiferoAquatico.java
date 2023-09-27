@@ -11,6 +11,13 @@ public class MamiferoAquatico extends Mamifero {
     public String nadarMamiferoAquatico() {
         return "nadando";
     }
+    @Override
+    public int hashCode() {//exemplo, não sei se está certo
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + PACIENCIA_MAXIMA;
+        return result;
+    }
 
     @Override
     public String toString() {
