@@ -18,6 +18,27 @@ public class MamiferoAquatico extends Mamifero {
         result = prime * result + PACIENCIA_MAXIMA;
         return result;
     }
+    @Override
+    public boolean equals(Object outro){
+        if (outro == null) {
+            return false; 
+        }
+        if(this == outro){
+            return true;
+        }
+        if (! (outro instanceof Ave)) {
+            return false;
+            
+        }
+        MamiferoAquatico outroMamiferoAquatico = (MamiferoAquatico) outro;
+        if (this.PACIENCIA_MAXIMA == outroMamiferoAquatico.PACIENCIA_MAXIMA) {
+            return true;
+            
+        }else{
+            return false;
+        }
+
+    }
 
     @Override
     public String toString() {

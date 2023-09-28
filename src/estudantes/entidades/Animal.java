@@ -117,6 +117,44 @@ public class Animal {
     public void aumentaEspera() {
 
     }
+    @Override
+    public int hashCode() {
+        int result = 31;
+        result = result * result + PACIENCIA_MAXIMA;
+        result = result * result + id;
+        result = result * result + (nome == null ? 0 : nome.hashCode());
+        result = result * result + (especie == null ? 0 : especie.hashCode());
+        result = result * result + peso;
+        result = result * result + andarDesejado;
+        result = result * result + tempoDeEspera;
+        result = result * result + temperaturaIdeal;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object outro) {
+        if (outro == null) {
+            return false;
+        }
+        if (this == outro) {
+            return true;
+        }
+        if (!(outro instanceof Ave)) {
+            return false;
+
+        }
+        Animal outroAnimal = (Animal) outro;
+        if (this.PACIENCIA_MAXIMA == outroAnimal.PACIENCIA_MAXIMA && this.id == outroAnimal.id
+                && this.nome == outroAnimal.nome && this.especie == outroAnimal.especie
+                && this.andarDesejado == outroAnimal.andarDesejado && this.peso == outroAnimal.peso
+                && this.temperaturaIdeal == outroAnimal.temperaturaIdeal) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
 
     @Override
     public String toString() {
@@ -125,5 +163,4 @@ public class Animal {
                 + ", temperaturaIdeal=" + temperaturaIdeal + "]";
     }
 
-    
 }

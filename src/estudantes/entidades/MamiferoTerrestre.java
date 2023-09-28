@@ -11,6 +11,27 @@ public class MamiferoTerrestre extends Mamifero {
     public String andarMamiferoTerrestre() {
         return "andando";
     }
+    @Override
+    public boolean equals(Object outro){
+        if (outro == null) {
+            return false; 
+        }
+        if(this == outro){
+            return true;
+        }
+        if (! (outro instanceof Ave)) {
+            return false;
+            
+        }
+        MamiferoTerrestre outroMamiferoTerrestre = (MamiferoTerrestre) outro;
+        if (this.PACIENCIA_MAXIMA == outroMamiferoTerrestre.PACIENCIA_MAXIMA) {
+            return true;
+            
+        }else{
+            return false;
+        }
+
+    }
 
     @Override
     public int hashCode() {// exemplo, não sei se está certo

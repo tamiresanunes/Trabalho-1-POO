@@ -15,6 +15,27 @@ public class AveVoadora extends Ave{
         result = prime * result + PACIENCIA_MAXIMA;
         return result;
     }
+    @Override
+    public boolean equals(Object outro){
+        if (outro == null) {
+            return false; 
+        }
+        if(this == outro){
+            return true;
+        }
+        if (! (outro instanceof Ave)) {
+            return false;
+            
+        }
+        AveVoadora outroAveVoadora = (AveVoadora) outro;
+        if (this.PACIENCIA_MAXIMA == outroAveVoadora.PACIENCIA_MAXIMA) {
+            return true;
+            
+        }else{
+            return false;
+        }
+
+    }
 
     @Override
     public String toString() {

@@ -26,6 +26,27 @@ public class Peixe extends Animal {
         result = prime * result + PACIENCIA_MAXIMA;
         return result;
     }
+    @Override
+    public boolean equals(Object outro){
+        if (outro == null) {
+            return false; 
+        }
+        if(this == outro){
+            return true;
+        }
+        if (! (outro instanceof Ave)) {
+            return false;
+            
+        }
+        Peixe outroPeixe = (Peixe) outro;
+        if (this.corDasEscamas == outroPeixe.corDasEscamas && this.PACIENCIA_MAXIMA == outroPeixe.PACIENCIA_MAXIMA) {
+            return true;
+            
+        }else{
+            return false;
+        }
+
+    }
 
     @Override
     public String toString() {
