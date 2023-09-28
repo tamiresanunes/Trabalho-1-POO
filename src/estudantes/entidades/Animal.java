@@ -119,15 +119,16 @@ public class Animal {
     }
     @Override
     public int hashCode() {
-        int result = 31;
-        result = result * result + PACIENCIA_MAXIMA;
-        result = result * result + id;
-        result = result * result + (nome == null ? 0 : nome.hashCode());
-        result = result * result + (especie == null ? 0 : especie.hashCode());
-        result = result * result + peso;
-        result = result * result + andarDesejado;
-        result = result * result + tempoDeEspera;
-        result = result * result + temperaturaIdeal;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + PACIENCIA_MAXIMA;
+        result = prime * result + id;
+        result = prime * result + (nome == null ? 0 : nome.hashCode());
+        result = prime * result + (especie == null ? 0 : especie.hashCode());
+        result = prime * result + peso;
+        result = prime * result + andarDesejado;
+        result = prime * result + tempoDeEspera;
+        result = prime * result + temperaturaIdeal;
         return result;
     }
 
