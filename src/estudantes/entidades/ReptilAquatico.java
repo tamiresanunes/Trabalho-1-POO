@@ -31,6 +31,10 @@ public class ReptilAquatico extends Reptil {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         ReptilAquatico outroReptilAquatico = (ReptilAquatico) outro;
         if (this.PACIENCIA_MAXIMA == outroReptilAquatico.PACIENCIA_MAXIMA) {
             return true;

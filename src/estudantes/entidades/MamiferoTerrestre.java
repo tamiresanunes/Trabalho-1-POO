@@ -23,6 +23,10 @@ public class MamiferoTerrestre extends Mamifero {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         MamiferoTerrestre outroMamiferoTerrestre = (MamiferoTerrestre) outro;
         if (this.PACIENCIA_MAXIMA == outroMamiferoTerrestre.PACIENCIA_MAXIMA) {
             return true;

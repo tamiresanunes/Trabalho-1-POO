@@ -43,6 +43,9 @@ public class Ave extends Animal {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
         Ave outroAve = (Ave) outro;
         if (this.corDasPenas == outroAve.corDasPenas && this.PACIENCIA_MAXIMA == outroAve.PACIENCIA_MAXIMA) {
             return true;

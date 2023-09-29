@@ -5,7 +5,7 @@ public class Aplicativo {//classe feita para testar o funcionamento dos métodos
         Animal animal = new Animal(12, "caralho", "mamifero", 5, 15, 40);
         Animal animal2 = new Animal(14, "bixo", "reptil", 4, 25, 10);
         Ave ave1 = new Ave(5, "andorinha", "passaro", 2, 5, 10, "azul");
-        Ave ave2 = new Ave(6, "pardal", "passaro", 4, 2, 10, "rosa");
+        Ave ave2 = new Ave(6, "pardal", "passaro", 4, 2, 10, "azul");
 
         int hashCodeanimal = animal.hashCode();
         int hashCodeanimal2 = animal2.hashCode();

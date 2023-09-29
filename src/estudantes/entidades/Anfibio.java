@@ -35,6 +35,10 @@ public class Anfibio extends Animal {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         Anfibio outroAnfibio = (Anfibio) outro;
         if (this.PACIENCIA_MAXIMA == outroAnfibio.PACIENCIA_MAXIMA) {
             return true;

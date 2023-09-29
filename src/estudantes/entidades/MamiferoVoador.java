@@ -30,6 +30,10 @@ public class MamiferoVoador extends Mamifero {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         MamiferoVoador outroMamiferoVoador = (MamiferoVoador) outro;
         if (this.PACIENCIA_MAXIMA == outroMamiferoVoador.PACIENCIA_MAXIMA) {
             return true;

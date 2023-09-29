@@ -27,6 +27,10 @@ public class AveVoadora extends Ave{
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         AveVoadora outroAveVoadora = (AveVoadora) outro;
         if (this.PACIENCIA_MAXIMA == outroAveVoadora.PACIENCIA_MAXIMA) {
             return true;

@@ -30,6 +30,10 @@ public class MamiferoAquatico extends Mamifero {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         MamiferoAquatico outroMamiferoAquatico = (MamiferoAquatico) outro;
         if (this.PACIENCIA_MAXIMA == outroMamiferoAquatico.PACIENCIA_MAXIMA) {
             return true;

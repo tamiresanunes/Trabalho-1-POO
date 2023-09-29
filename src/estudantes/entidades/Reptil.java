@@ -32,6 +32,10 @@ public class Reptil extends Animal {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         Reptil outroReptil = (Reptil) outro;
         if (this.PACIENCIA_MAXIMA == outroReptil.PACIENCIA_MAXIMA) {
             return true;

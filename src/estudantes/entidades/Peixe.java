@@ -38,6 +38,10 @@ public class Peixe extends Animal {
             return false;
             
         }
+        if (! super.equals(outro)) {
+            return false;
+        }
+        
         Peixe outroPeixe = (Peixe) outro;
         if (this.corDasEscamas == outroPeixe.corDasEscamas && this.PACIENCIA_MAXIMA == outroPeixe.PACIENCIA_MAXIMA) {
             return true;
