@@ -117,6 +117,13 @@ public class Animal {
     public void aumentaEspera() {
 
     }
+
+    // Este método hascode está combinando os códigos hash dos campos do
+    // objeto, ponderados pela constante prime, para calcular um código hash geral
+    // para o objeto, o prime é uma contante usada para calcular o código hash,
+    // sendo um número primo para evitar colisões
+    // result é o valor iniciado com 1 que vai ser multiplicado e somado ao longo do
+    // calculo do código hash
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -132,6 +139,17 @@ public class Animal {
         return result;
     }
 
+    // Método que verifica se dois objetos são iguais, primeiro ele verifica se o
+    // objeto é diferente de nullo
+    // Depois ele verifica se o objeto passado como argumento é o mesmo objeto no
+    // qual o método esta sendo chamado
+    // Depois ele verifica se o objeto passado é uma instância da classe Animal ou
+    // de uma subclasse dela
+    // Se não for retorna false indicando que os objetos são d etipos diferentes, ou
+    // seja, não são iguais
+    // Depois ele converte o objeto passado como argumento para o tipo animal
+    // Depois compara os atributos do objeto atual com os atributos de outroAnimal,
+    // para ver se eles são iguais
     @Override
     public boolean equals(Object outro) {
         if (outro == null) {
@@ -140,7 +158,7 @@ public class Animal {
         if (this == outro) {
             return true;
         }
-        if (!(outro instanceof Ave)) {
+        if (!(outro instanceof Animal)) {
             return false;
 
         }
