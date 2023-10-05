@@ -55,22 +55,25 @@ public class Ascensorista {
             elevador.desembarcar(null, andar);;
         }
         // Verifica se há animais esperando no andar atual.
-        List<Animal> animaisNoAndar = andar.checarFilaParaElevador();
-        if (!animaisNoAndar.isEmpty()) {
+        Animal[] animaisNoAndar = andar.checarFilaParaElevador();
+        if (!animaisNoAndar.length) {
             // Embarca todos os animais que couberem no elevador.
             elevador.embarcar(null);;
         }
         // Verifica se o elevador está vazio.
-        if (elevador.estaVazio()) {
+        if (elevador.checarAnimaisNoElevador() != null) {
             // Sobe ou desce o elevador para o próximo andar.
-            if (andarAtual.getNumero() < elevador.getNumeroDeAndares()) {
+            if (andar.getAndar() < elevador.getAndar()) {
                 elevador.subir();
             } else {
                 elevador.descer();
             }
             // Atualiza o andar atual.
-            andarAtual = elevador.getAndarAtual();
+            andar = andar(elevador.getAndar());
         }
+    }
+    private Andar andar(int andar2) {
+        return null;
     }
     }
     /*import java.util.List;
@@ -104,6 +107,5 @@ public class Ascensorista {
             // Atualiza o andar atual.
             andarAtual = elevador.getAndarAtual();
         }
-    }
-} */
-}
+    }*/
+
