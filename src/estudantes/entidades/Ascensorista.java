@@ -1,6 +1,8 @@
 package entidades;
 
 
+import java.util.List;
+
 import professor.entidades.Andar;
 import professor.entidades.Elevador;
 
@@ -16,7 +18,8 @@ import professor.entidades.Elevador;
  * @version 1.0
  */
 public class Ascensorista {
-    
+    private Elevador elevador;
+    private Andar andar;
     /**
      * Construtor padrão de Ascensorista.
      * Esse construtor sem parâmetros que será usado pela Arca. Embora a
@@ -24,7 +27,11 @@ public class Ascensorista {
      * ser alterado conforme a necessidade.
      */
     public Ascensorista(){
-        /* TODO: codificar */
+        
+    }
+     public Ascensorista(Elevador elevador){
+        this.elevador = elevador;
+        this.andar = andar;
     }
     
     /**
@@ -42,7 +49,61 @@ public class Ascensorista {
      * @param andar o andar no qual o elevador está parado
      */
     public void agir(Elevador elevador, Andar andar){
-        /* TODO: codificar */
+        // Verifica se o elevador está cheio.
+        if (elevador.checarAnimaisNoElevador() != null) {
+            // Desembarca todos os animais do elevador.
+            elevador.desembarcar(null, andar);;
+        }
+        // Verifica se há animais esperando no andar atual.
+        List<Animal> animaisNoAndar = andar.checarFilaParaElevador();
+        if (!animaisNoAndar.isEmpty()) {
+            // Embarca todos os animais que couberem no elevador.
+            elevador.embarcar(null);;
+        }
+        // Verifica se o elevador está vazio.
+        if (elevador.estaVazio()) {
+            // Sobe ou desce o elevador para o próximo andar.
+            if (andarAtual.getNumero() < elevador.getNumeroDeAndares()) {
+                elevador.subir();
+            } else {
+                elevador.descer();
+            }
+            // Atualiza o andar atual.
+            andarAtual = elevador.getAndarAtual();
+        }
     }
-    
+    }
+    /*import java.util.List;
+public class Ascensorista {
+    private Elevador elevador;
+    private Andar andarAtual;
+    public Ascensorista(Elevador elevador) {
+        this.elevador = elevador;
+        this.andarAtual = elevador.getAndarAtual();
+    }
+    public void agir() {
+        // Verifica se o elevador está cheio.
+        if (elevador.estaCheio()) {
+            // Desembarca todos os animais do elevador.
+            elevador.desembarcarTodos();
+        }
+        // Verifica se há animais esperando no andar atual.
+        List<Animal> animaisNoAndar = andarAtual.getAnimais();
+        if (!animaisNoAndar.isEmpty()) {
+            // Embarca todos os animais que couberem no elevador.
+            elevador.embarcar(animaisNoAndar);
+        }
+        // Verifica se o elevador está vazio.
+        if (elevador.estaVazio()) {
+            // Sobe ou desce o elevador para o próximo andar.
+            if (andarAtual.getNumero() < elevador.getNumeroDeAndares()) {
+                elevador.subir();
+            } else {
+                elevador.descer();
+            }
+            // Atualiza o andar atual.
+            andarAtual = elevador.getAndarAtual();
+        }
+    }
+} */
 }
