@@ -96,6 +96,9 @@ public class Animal {
     public int getTemperaturaIdeal() {
         return temperaturaIdeal;
     }
+    public int getPACIENCIA_MAXIMA(){
+        return PACIENCIA_MAXIMA;
+    }
 
     /**
      * Aumenta o tempo de espera um animal na fila quando passa um ciclo.
@@ -115,6 +118,13 @@ public class Animal {
      * @see professor.entidades.Arca#simularVida
      */
     public void aumentaEspera() {
+        // O método aumentaEspera() aumenta o tempoDeEspera do animal em 1.
+            // Se o tempoDeEspera for maior ou igual a PACIENCIA_MAXIMA, é lançada uma exceção.
+            this.tempoDeEspera++;
+            if (this.tempoDeEspera >= PACIENCIA_MAXIMA) {
+                throw new RuntimeException("O animal está esperando na fila há mais tempo que a paciência que possui");
+                //implementar o animal sair da fila?
+            }
 
     }
 
