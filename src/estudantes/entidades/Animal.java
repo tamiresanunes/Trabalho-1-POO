@@ -109,7 +109,7 @@ public class Animal {
      * <br>
      * A implementação desse método deve comparar a paciência do animal com
      * o tempo de espera depois de incrementado. Se ela for menor, uma exceção
-     * deve ser lançada.
+     * deve ser lançada.F
      * <br>
      * <br>
      * 
