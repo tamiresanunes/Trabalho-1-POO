@@ -1,6 +1,5 @@
 package entidades;
 
-
 import java.util.List;
 
 import professor.entidades.Andar;
@@ -20,6 +19,8 @@ import professor.entidades.Elevador;
 public class Ascensorista {
     private Elevador elevador;
     private Andar andar;
+    private Animal[] animais;
+    private Animal animal;
     /**
      * Construtor padrão de Ascensorista.
      * Esse construtor sem parâmetros que será usado pela Arca. Embora a
@@ -29,7 +30,7 @@ public class Ascensorista {
     public Ascensorista(){
         
     }
-     public Ascensorista(Elevador elevador){
+     public Ascensorista(Elevador elevador, Andar andar){
         this.elevador = elevador;
         this.andar = andar;
     }
@@ -49,18 +50,20 @@ public class Ascensorista {
      * @param andar o andar no qual o elevador está parado
      */
     public void agir(Elevador elevador, Andar andar){
+        // Verifica se há animais esperando no andar atual.
+        Animal[] animaisNaFila = andar.checarFilaParaElevador();
+        if (animaisNaFila.length > 0) {
+            // Embarca os animais que estão esperando no andar
+            for (Animal animal : animaisNaFila) {
+                elevador.embarcar(animal);
+            }
+        }
+        /*//Animal[] animaisNoAndar = andar.checarFilaParaElevador();
         // Verifica se o elevador está cheio.
         if (elevador.checarAnimaisNoElevador() != null) {
             // Desembarca todos os animais do elevador.
-            elevador.desembarcar(null, andar);;
+            elevador.desembarcar(animal, andar);
         }
-        // Verifica se há animais esperando no andar atual.
-        if (andar.checarFilaParaElevador().length > 0) {
-            // Embarca os animais que estão esperando no andar
-            elevador.embarcar(null); 
-        }
-        //Animal[] animaisNoAndar = andar.checarFilaParaElevador();
-        
         // Verifica se o elevador está vazio.
         if (elevador.checarAnimaisNoElevador() != null) {
             // Sobe ou desce o elevador para o próximo andar.
@@ -71,7 +74,7 @@ public class Ascensorista {
             }
             // Atualiza o andar atual.
             andar = andar(elevador.getAndar());
-        }
+        }*/
     }
     private Andar andar(int andar2) {
         return null;

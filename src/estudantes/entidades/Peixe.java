@@ -4,8 +4,8 @@ public class Peixe extends Animal {
     public int PACIENCIA_MAXIMA = 60;
     private String corDasEscamas;
 //construtor com os atributos próprios da classe e com os herdados da superclasse, sendo chamados através do super
-    public Peixe(String corDasEscamas, int id, String nome, String especie, int andarDesejado,
-            int peso, int temperaturaIdeal) {
+    public Peixe(int id, String nome, String especie, int andarDesejado,
+            int peso, int temperaturaIdeal, String corDasEscamas) {
         super(id, nome, especie, andarDesejado, peso, temperaturaIdeal);
         this.corDasEscamas = corDasEscamas;
     }

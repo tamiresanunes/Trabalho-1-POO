@@ -1,10 +1,17 @@
 package professor.entidades;
 
-
-import java.util.Random;
-
+import entidades.Anfibio;
 import entidades.Animal;
 import entidades.Ascensorista;
+import entidades.Ave;
+import entidades.AveVoadora;
+import entidades.MamiferoAquatico;
+import entidades.MamiferoTerrestre;
+import entidades.MamiferoVoador;
+import entidades.Peixe;
+import entidades.Reptil;
+import entidades.ReptilAquatico;
+import java.util.Random;
 import professor.gui.Simulador;
 
 
@@ -14,7 +21,7 @@ import professor.gui.Simulador;
  * <strong>Não mexa aqui!!!</strong>
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @version 1.2
  */
 public class Arca {
     
@@ -22,7 +29,8 @@ public class Arca {
     private static final String[] SOBRENOMES_DE_ANIMAIS = {"Rosa","de Assis","Lispector","Meireles","Ramos","Evaristo","Suassuna","de Jesus","Barreto","Verissimo","Medeiros","Bilac","Bojunga","de Alencar","Buarque","Couto","Bonifacio","Saramago","dos Anjos"};
     private static final String[] PRIMEIRA_PARTE_ESPECIE = {"Chioglossa","Bufo","Crocodylus","Tropidurus","Struthio","Raphus","Rhynchocyon","Psychrolutes","Amphiprion","Felis","Canis","Hemidactylus","Lepidopus","Cicinnurus","Tyrannus","Draco"};
     private static final String[] SEGUNDA_PARTE_ESPECIE = {"lusitanica","periglenes","porosus","oreadicus","camelus","cucullatus","petersi","marcidus","clarkii","catus","familiaris","mabouia","caudatus","regius","melancholicus","volans"};
-
+    private static final String[] CORES = {"arco-iris", "azul", "bege", "laranja", "prata", "purpura", "rosa", "verde"};
+    
     private Random gerador;
     private int tempo = 0;
     private Elevador elevador;
@@ -75,8 +83,9 @@ public class Arca {
      * @see professor.gui.Simulador#atualizarInterface
      */
     public void simularVida() {
+        //cria animais
         for (int i = 0; i < QUANTIDADE_DE_ANDARES_NA_ARCA; i++) {
-            if (gerador.nextInt(5) == 0) { //20% de chance de gerar um animal em cada andar
+            if (gerador.nextInt(4) == 0) { //25% de chance de gerar um animal em cada andar
                 int id = gerador.nextInt(1000000);
                 String nome = PRENOMES_DE_ANIMAIS[gerador.nextInt(PRENOMES_DE_ANIMAIS.length)]+" "+
                         SOBRENOMES_DE_ANIMAIS[gerador.nextInt(SOBRENOMES_DE_ANIMAIS.length)];
@@ -86,7 +95,31 @@ public class Arca {
                 int peso = gerador.nextInt(1000) + 1;
                 int temperatura = gerador.nextInt(41);
                 
-                Animal novo = new Animal(id, nome, especie, andarDesejado, peso, temperatura);
+                Animal novo;
+                
+                //escolhe o tipo de animal que gera
+                switch(gerador.nextInt(9)){
+                    case 0: novo = new Anfibio(id, nome, especie, andarDesejado, peso, temperatura);
+                            break;
+                    case 1: novo = new Ave(id, nome, especie, andarDesejado, peso, temperatura, CORES[gerador.nextInt(CORES.length)]);
+                            break;
+                    case 2: novo = new AveVoadora(id, nome, especie, andarDesejado, peso, temperatura, CORES[gerador.nextInt(CORES.length)]);
+                            break;                    
+                    case 3: novo = new MamiferoAquatico(id, nome, especie, andarDesejado, peso, temperatura, false);
+                            break;                        
+                    case 4: novo = new MamiferoTerrestre(id, nome, especie, andarDesejado, peso, temperatura, true);
+                            break;                    
+                    case 5: novo = new MamiferoTerrestre(id, nome, especie, andarDesejado, peso, temperatura, true);
+                            break;                   
+                    case 6: novo = new Peixe(id, nome, especie, andarDesejado, peso, temperatura, CORES[gerador.nextInt(CORES.length)]);
+                            break;                    
+                    case 7: novo = new Reptil(id, nome, especie, andarDesejado, peso, temperatura);
+                            break;                    
+                    case 8: novo = new ReptilAquatico(id, nome, especie, andarDesejado, peso, temperatura);
+                            break;                    
+                    default: novo = new Animal(id, nome, especie, andarDesejado, peso, temperatura);
+                }
+                
                 andares[i].colocarNaFila(novo);
             }
         }
