@@ -64,8 +64,8 @@ public class AveVoadora extends Ave{
     @Override
     public String toString() {
         return "Ave Voadora ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie() + ", Andar Desejado: "
-                + getAndarDesejado() + ", Peso: " + getPeso() + "e Temperatura Ideal: " + getTemperaturaIdeal()
-                + "e, Cor das Penas: " + getCorDasPenas();
+                + getAndarDesejado() + ", Peso: " + getPeso() + " e Temperatura Ideal: " + getTemperaturaIdeal()
+                + " e, Cor das Penas: " + getCorDasPenas();
     }
 
     

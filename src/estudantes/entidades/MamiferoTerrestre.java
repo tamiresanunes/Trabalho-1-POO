@@ -69,7 +69,7 @@ public class MamiferoTerrestre extends Mamifero {
     public String toString() {
         return "Mamífero Terrestre ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie()
                 + ", Andar Desejado: " + getAndarDesejado() + ", Peso: "
-                + getPeso() + ", Temperatura Ideal: " + getTemperaturaIdeal() + "e Peludo: " + getPeludo();
+                + getPeso() + ", Temperatura Ideal: " + getTemperaturaIdeal() + " e Peludo: " + getPeludo();
     }
 
 }

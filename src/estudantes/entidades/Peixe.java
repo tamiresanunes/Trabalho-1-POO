@@ -75,8 +75,8 @@ public class Peixe extends Animal {
     @Override
     public String toString() {
         return "Peixe ID: " + getId() + ", Nome: " + getNome() + ", Especie: " + getEspecie() + ", Andar Desejado: "
-                + getAndarDesejado() + ", Peso: " + getPeso() + "e Temperatura Ideal: " + getTemperaturaIdeal()
-                + "e, Cor Das Escamas: " + getCorDasEscamas();
+                + getAndarDesejado() + ", Peso: " + getPeso() + " e Temperatura Ideal: " + getTemperaturaIdeal()
+                + " e, Cor Das Escamas: " + getCorDasEscamas();
     }
 
 }
