@@ -33,10 +33,12 @@ public class Ascensorista {
 
     }
 
-    public Ascensorista(Elevador elevador, Andar andar) {
-        this.elevador = elevador;
-        this.andar = andar;
-    }
+    /*
+     * public Ascensorista(Elevador elevador, Andar andar) {
+     * this.elevador = elevador;
+     * this.andar = andar;
+     * }
+     */
 
     /**
      * Executa a lógica de controle do elevador e dos animais.
@@ -56,12 +58,12 @@ public class Ascensorista {
      */
     public void agir(Elevador elevador, Andar andar) {
         // Verifica se há animais esperando no andar atual.
-        
-        Animal[] animaisNaFila = andar.checarFilaParaElevador();
+
+        Animal[] animaisNoAndar = andar.checarFilaParaElevador();
         double pesoTotalNoElevador = 0;
         // while (animaisNaFila.length > 0) {
         // Embarca os animais que estão esperando no andar
-        for (Animal animal : animaisNaFila) {
+        for (Animal animal : animaisNoAndar) {
             if (pesoTotalNoElevador + animal.getPeso() <= 2500) {
                 elevador.embarcar(animal);// Embarca o animal no elevador
                 pesoTotalNoElevador += animal.getPeso();
@@ -76,52 +78,28 @@ public class Ascensorista {
                 elevador.desembarcar(animal, andar);
             }
         }
-        // Sobe para o próximo andar.
-        elevador.subir();
     }
-        /*
-         * //Animal[] animaisNoAndar = andar.checarFilaParaElevador();
-         * // Verifica se o elevador está cheio.
-         * if (elevador.checarAnimaisNoElevador() != null) {
-         * // Desembarca todos os animais do elevador.
-         * elevador.desembarcar(animal, andar);
-         * }
-         * // Verifica se o elevador está vazio.
-         * if (elevador.checarAnimaisNoElevador() != null) {
-         * // Sobe ou desce o elevador para o próximo andar.
-         * if (andar.getAndar() < elevador.getAndar()) {
-         * elevador.subir();
-         * } else {
-         * elevador.descer();
-         * }
-         * // Atualiza o andar atual.
-         * andar = andar(elevador.getAndar());
-         * }
-         */
+    /*
+     * //Animal[] animaisNoAndar = andar.checarFilaParaElevador();
+     * // Verifica se o elevador está cheio.
+     * if (elevador.checarAnimaisNoElevador() != null) {
+     * // Desembarca todos os animais do elevador.
+     * elevador.desembarcar(animal, andar);
+     * }
+     * // Verifica se o elevador está vazio.
+     * if (elevador.checarAnimaisNoElevador() != null) {
+     * // Sobe ou desce o elevador para o próximo andar.
+     * if (andar.getAndar() < elevador.getAndar()) {
+     * elevador.subir();
+     * } else {
+     * elevador.descer();
+     * }
+     * // Atualiza o andar atual.
+     * andar = andar(elevador.getAndar());
+     * }
+     */
 
     private Andar andar(int andar2) {
         return null;
     }
 }
-/*
- * public void agir(Elevador elevador, Andar andar) {
- * // Verifica se o elevador está cheio
- * if (elevador.estaCheio()) {
- * // Desembarca todos os animais do elevador
- * elevador.desembarcarTodos();
- * }
- * // Verifica se há animais esperando no andar
- * if (andar.haAnimaisEsperando()) {
- * // Embarca os animais que estão esperando no andar
- * elevador.embarcar(andar.getAnimaisEsperando());
- * }
- * // Verifica se o elevador está vazio
- * if (elevador.estaVazio()) {
- * // Sobe o elevador
- * elevador.subir();
- * } else {
- * // Desce o elevador
- * elevador.descer();
- * }
- * }
- */
