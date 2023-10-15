@@ -1,6 +1,10 @@
 package entidades;
 
-public class Aplicativo {//classe feita para testar o funcionamento dos métodos de HashCode e Equals, pode ser apagada posteriormente
+public class Aplicativo {
+/** 
+ * @param args
+ */
+//classe feita para testar o funcionamento dos métodos de HashCode e Equals, pode ser apagada posteriormente
     public static void main(String[] args) {
         Animal animal = new Animal(12, "caralho", "mamifero", 5, 15, 40);
         Animal animal2 = new Animal(14, "bixo", "reptil", 4, 25, 10);

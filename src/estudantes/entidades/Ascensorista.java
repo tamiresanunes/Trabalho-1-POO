@@ -76,6 +76,11 @@ public class Ascensorista {
             andar = andar(elevador.getAndar());
         }*/
     }
+    
+    /** 
+     * @param andar2
+     * @return Andar
+     */
     private Andar andar(int andar2) {
         return null;
     }
