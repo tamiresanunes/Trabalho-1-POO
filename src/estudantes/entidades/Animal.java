@@ -24,16 +24,23 @@ public class Animal {
 
     /**
      * Limite da paciência de um animal esperando na fila antes de ir embora.
+     * em segundos (ciclos de espera)
      */
-    public final int PACIENCIA_MAXIMA = 25; // em segundos (ciclos de espera)
+    public final int PACIENCIA_MAXIMA = 25;
 
+    /**
+     * Atributos da classe
+     * Peso é em quilos
+     * AndarDesejado se inicia no 0, que é o térreo
+     * TemperaturaIdeal é em graus Celsius
+     */
     private int id;
     private String nome;
     private String especie;
-    private int peso; // em quilos
-    private int andarDesejado; // 0 é o térreo
+    private int peso;
+    private int andarDesejado;
     private int tempoDeEspera;
-    private int temperaturaIdeal; // em graus Celsius
+    private int temperaturaIdeal;
 
     /**
      * Construtor do animal.
@@ -77,26 +84,59 @@ public class Animal {
         return peso;
     }
 
+    /**
+     * Retorna o nome do animal
+     * 
+     * @return nome do animal
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Retorna a especie do animal
+     * 
+     * @return especie do animal
+     */
     public String getEspecie() {
         return especie;
     }
 
+    /**
+     * Retorna o Andar Desejado pelo animal
+     * 
+     * @return andarDesejado, que é um inteiro
+     */
     public int getAndarDesejado() {
         return andarDesejado;
     }
+
+    /**
+     * Retorna o tempo de espera do animal
+     * 
+     * @return tempo de espera
+     */
 
     public int getTempoDeEspera() {
         return tempoDeEspera;
     }
 
+    /**
+     * Retorna a temperatura ideal que o animal precisa
+     * 
+     * @return a temperatura ideal
+     */
     public int getTemperaturaIdeal() {
         return temperaturaIdeal;
     }
-    public int getPACIENCIA_MAXIMA(){
+
+    /**
+     * Retorna a paciência máxima que o animal possui
+     * 
+     * @return a paciência máxima do animal
+     */
+
+    public int getPACIENCIA_MAXIMA() {
         return PACIENCIA_MAXIMA;
     }
 
@@ -118,22 +158,27 @@ public class Animal {
      * @see professor.entidades.Arca#simularVida
      */
     public void aumentaEspera() {
-        // O método aumentaEspera() aumenta o tempoDeEspera do animal em 1.
-            // Se o tempoDeEspera for maior ou igual a PACIENCIA_MAXIMA, é lançada uma exceção.
-            this.tempoDeEspera++;
-            if (this.tempoDeEspera >= PACIENCIA_MAXIMA) {
-                throw new RuntimeException("O animal está esperando na fila há mais tempo que a paciência que possui");
-                //implementar o animal sair da fila?
-            }
+        /**
+         * O método aumentaEspera() aumenta o tempoDeEspera do animal em 1.
+         * Se o tempoDeEspera for maior ou igual a PACIENCIA_MAXIMA, é lançada uma
+         * exceção.
+         */
+        this.tempoDeEspera++;
+        if (this.tempoDeEspera >= PACIENCIA_MAXIMA) {
+            throw new RuntimeException("O animal está esperando na fila há mais tempo que a paciência que possui");
+            // implementar o animal sair da fila?
+        }
 
     }
 
-    // Este método hascode está combinando os códigos hash dos campos do
-    // objeto, ponderados pela constante prime, para calcular um código hash geral
-    // para o objeto, o prime é uma contante usada para calcular o código hash,
-    // sendo um número primo para evitar colisões
-    // result é o valor iniciado com 1 que vai ser multiplicado e somado ao longo do
-    // calculo do código hash
+    /**
+     * Este método hascode está combinando os códigos hash dos campos do
+     * objeto, ponderados pela constante prime, para calcular um código hash geral
+     * para o objeto, o prime é uma contante usada para calcular o código hash,
+     * sendo um número primo para evitar colisões
+     * result é o valor iniciado com 1 que vai ser multiplicado e somado ao longo do
+     * calculo do código hash
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -149,17 +194,19 @@ public class Animal {
         return result;
     }
 
-    // Método que verifica se dois objetos são iguais, primeiro ele verifica se o
-    // objeto é diferente de nullo
-    // Depois ele verifica se o objeto passado como argumento é o mesmo objeto no
-    // qual o método esta sendo chamado
-    // Depois ele verifica se o objeto passado é uma instância da classe Animal ou
-    // de uma subclasse dela
-    // Se não for retorna false indicando que os objetos são d etipos diferentes, ou
-    // seja, não são iguais
-    // Depois ele converte o objeto passado como argumento para o tipo animal
-    // Depois compara os atributos do objeto atual com os atributos de outroAnimal,
-    // para ver se eles são iguais
+    /**
+     * Método que verifica se dois objetos são iguais, primeiro ele verifica se o
+     * objeto é diferente de nullo
+     * Depois ele verifica se o objeto passado como argumento é o mesmo objeto no
+     * qual o método esta sendo chamado
+     * Depois ele verifica se o objeto passado é uma instância da classe Animal ou
+     * de uma subclasse dela
+     * Se não for retorna false indicando que os objetos são d etipos diferentes, ou
+     * seja, não são iguais
+     * Depois ele converte o objeto passado como argumento para o tipo animal
+     * Depois compara os atributos do objeto atual com os atributos de outroAnimal,
+     * para ver se eles são iguais
+     */
     @Override
     public boolean equals(Object outro) {
         if (outro == null) {
@@ -184,6 +231,9 @@ public class Animal {
         }
 
     }
+    /**
+     * Método toString que irá imprimir as informações do animal
+     */
 
     @Override
     public String toString() {
