@@ -2,6 +2,9 @@ package entidades;
 
 /**
  * Classe Mamífero que é um tipo de Animal
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public abstract class Mamifero extends Animal {
     /**

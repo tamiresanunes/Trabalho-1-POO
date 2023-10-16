@@ -18,7 +18,9 @@ import professor.entidades.Elevador;
  * método público deve ser "agir".
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.1
  */
 public class Ascensorista {
     private Elevador elevador;
@@ -31,16 +33,14 @@ public class Ascensorista {
      * assinatura do construtor não deva ser mudada, o código interno pode
      * ser alterado conforme a necessidade.
      */
-    public Ascensorista() {
+    public Ascensorista() {}
 
-    }
-
-    /*
-     * public Ascensorista(Elevador elevador, Andar andar) {
-     * this.elevador = elevador;
-     * this.andar = andar;
-     * }
-     */
+    
+     /*public Ascensorista(Elevador elevador, Andar andar) {
+     this.elevador = elevador;
+     this.andar = andar;
+     }*/
+     
 
     /**
      * Executa a lógica de controle do elevador e dos animais.

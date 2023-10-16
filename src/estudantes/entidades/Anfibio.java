@@ -5,6 +5,9 @@ package entidades;
  * Ela possui um construtor completo
  * Implementa dois métodos próprios
  * E sobre-escreve os métodos equals, haschCode e toString
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public class Anfibio extends Animal {
     /**

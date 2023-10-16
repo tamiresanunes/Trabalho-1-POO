@@ -20,7 +20,9 @@ import professor.entidades.Andar;
  * <strong>Não devem ser criados métodos adicionais nessa classe.</strong>
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.1
  */
 public class Animal {
 

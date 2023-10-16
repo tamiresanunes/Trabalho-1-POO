@@ -3,6 +3,9 @@ package entidades;
 /**
  * Classe MamiferoViador que é um tipo de Mamifero, o qual por sua vez é um tipo
  * de Animal
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public class MamiferoVoador extends Mamifero {
     /**
