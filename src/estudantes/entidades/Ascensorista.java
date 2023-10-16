@@ -118,19 +118,19 @@ public class Ascensorista {
             }
 
             for (int i = 0; i < animaisEmbarcados; i++) {
-                if (elevador.getAndar() == 1) {
+                if (elevador.getAndar() == 0) {
                     elevador.subir();
                 } else {
-                    if (elevador.getAndar() < 2) {
+                    if (elevador.getAndar() < 1) {
                      elevador.subir();   
                     } else {
-                       if (elevador.getAndar() < 3) {
+                       if (elevador.getAndar() < 2) {
                         elevador.subir();
                        } else {
-                        if (elevador.getAndar() < 4) {
+                        if (elevador.getAndar() < 3) {
                             elevador.subir();
                         } else {
-                           if (elevador.getAndar() == 5) {
+                           if (elevador.getAndar() == 4) {
                              elevador.descer();
                             
                            } 
