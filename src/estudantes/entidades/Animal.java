@@ -1,5 +1,7 @@
 package entidades;
 
+import professor.entidades.Andar;
+
 /**
  * Classe que define um animal da arca.
  * <br>
@@ -41,6 +43,7 @@ public class Animal {
     private int andarDesejado;
     private int tempoDeEspera;
     private int temperaturaIdeal;
+    private Andar andar;
 
     /**
      * Construtor do animal.
@@ -157,19 +160,43 @@ public class Animal {
      *                          paciência
      * @see professor.entidades.Arca#simularVida
      */
-    public void aumentaEspera() {
+    public void aumentaEspera(Andar andar) {
         /**
          * O método aumentaEspera() aumenta o tempoDeEspera do animal em 1.
          * Se o tempoDeEspera for maior ou igual a PACIENCIA_MAXIMA, é lançada uma
          * exceção.
          */
-        this.tempoDeEspera++;
-        if (this.tempoDeEspera >= PACIENCIA_MAXIMA) {
-            throw new RuntimeException("O animal está esperando na fila há mais tempo que a paciência que possui");
-            // implementar o animal sair da fila?
-        }
+        tempoDeEspera++; // Aumenta o tempo de espera ...
 
+        if (tempoDeEspera > PACIENCIA_MAXIMA) { // Verifica se o tempo ultrapassou a paciência, se sim,...
+            // Acessa a lista de animais da fila da classe Andar, pelo método
+            // "checarFilaParaElevador".
+            Animal[] fila = andar.checarFilaParaElevador();
+
+            for (int i = 0; i < fila.length; i++) {
+                // Aumenta o tempo de espera para todos os animais na fila.
+                fila[i].tempoDeEspera++;
+
+                if (fila[i].tempoDeEspera > PACIENCIA_MAXIMA) {
+                    andar.tirarDaFila(i); // remove o animal da fila usando a posição...
+                    //animaisQueSairamDaFila.add(fila[i]); // e adiciona o animal à lista de animais que saíram da fila.
+                }
+            }
+            // Por fim, solta a exceção.
+            throw new RuntimeException("O animal está esperando mais tempo do que sua paciência permite");
+        }
     }
+    /*
+     * this.tempoDeEspera++;
+     * if (this.tempoDeEspera >= PACIENCIA_MAXIMA) {
+     * throw new
+     * RuntimeException("O animal está esperando na fila há mais tempo que a paciência que possui"
+     * );
+     * // implementar o animal sair da fila?
+     * }
+     */
+
+    
 
     /**
      * Este método hascode está combinando os códigos hash dos campos do
@@ -231,6 +258,7 @@ public class Animal {
         }
 
     }
+
     /**
      * Método toString que irá imprimir as informações do animal
      */
