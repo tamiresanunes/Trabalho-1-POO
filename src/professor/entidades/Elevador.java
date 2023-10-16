@@ -1,46 +1,47 @@
 package professor.entidades;
 
 
+import entidades.Animal;
 import java.util.HashSet;
 
-import entidades.Animal;
-
 /**
- * Classe que representa o elevador com suas características.
+ * Classe que representa o elevador com suas caracterÃ­sticas.
  * <br><br>
- * <strong>Não mexa aqui!!!</strong>
+ * <strong>NÃ£o mexa aqui!!!</strong>
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @version 1.1
  */
 public class Elevador {
     
     /**
      * Limite de peso do elevador.
-     * Quando esse valor é ultrapassado, o elevador não deve se movimentar.
+     * Quando esse valor Ã© ultrapassado, o elevador nÃ£o deve se movimentar.
      */
     public final int LIMITE_DE_PESO = 2500; //em quilos
     
     private HashSet<Animal> animais;
-    private int andar; //0 é o térreo
+    private int andar; //0 Ã© o tÃ©rreo
     private int temperaturaDoArCondicionado; //em graus Celsius
     private boolean cheioDeAgua;
     
     /**
-     * Construtor padrão do elevador.
-     * Ele sempre começa vazio, sem água dentro e no andar 0 (térreo).
+     * Construtor padrÃ£o do elevador.
+     * Ele sempre comeÃ§a vazio, sem Ã¡gua dentro, com ar-condicionado em
+     * 20 graus e no andar 0 (tÃ©rreo).
      */
     public Elevador(){
         animais = new HashSet<Animal>();
         andar = 0;
+        temperaturaDoArCondicionado = 20;
         cheioDeAgua = false;
     }
 
     /**
      * Inclui um animal no elevador.
-     * O animal não é removido de qualquer outra estrutura que faça parte 
+     * O animal nÃ£o Ã© removido de qualquer outra estrutura que faÃ§a parte 
      * quando entra no elevador.
-     * @param animal animal que quer embarcar (um valor null será ignorado)
+     * @param animal animal que quer embarcar (um valor null serÃ¡ ignorado)
      */
     public void embarcar(Animal animal) {
         System.out.println("Embarque no andar "+this.andar+": "+animal);
@@ -52,9 +53,9 @@ public class Elevador {
 
     /**
      * Remove um animal do elevador e coloca ele no andar que desceu.
-     * Não há qualquer verificação nesse método.
+     * NÃ£o hÃ¡ qualquer verificaÃ§Ã£o nesse mÃ©todo.
      * @param animal animal desembarcando
-     * @param andar andar que está descendo
+     * @param andar andar que estÃ¡ descendo
      */
     public void desembarcar(Animal animal, Andar andar) {
         System.out.println("Desembarque no andar "+this.andar+": "+animal);
@@ -64,12 +65,12 @@ public class Elevador {
 
     /**
      * Devolve um vetor contendo todos os animais do elevador.
-     * Os animais não estarão em uma ordem definida (por exemplo, ordem em que
+     * Os animais nÃ£o estarÃ£o em uma ordem definida (por exemplo, ordem em que
      * entraram), pois se misturaram dentro do elevador para se acomodar. O uso
-     * desse vetor deve ser cuidadoso, pois os elementos são referências para
-     * os animais que também estão no elevador, ou seja, modificar o estado
-     * interno de um animal do vetor causa modificação no mesmo animal do
-     * elevador. Recomenda-se o uso do método clone() em um animal antes de
+     * desse vetor deve ser cuidadoso, pois os elementos sÃ£o referÃªncias para
+     * os animais que tambÃ©m estÃ£o no elevador, ou seja, modificar o estado
+     * interno de um animal do vetor causa modificaÃ§Ã£o no mesmo animal do
+     * elevador. Recomenda-se o uso do mÃ©todo clone() em um animal antes de
      * manipular seus dados para evitar efeito colateral.
      * @return vetor de animais sem ordem garantida
      */
@@ -78,10 +79,10 @@ public class Elevador {
     }
 
     /**
-     * Retorna o andar no qual o elevador está parado.
+     * Retorna o andar no qual o elevador estÃ¡ parado.
      * Qualquer uso de subir() ou descer() movimenta imediatamente o elevador,
-     * então esse método é bastante sensível.
-     * @return andar em que o elevador está no momento
+     * entÃ£o esse mÃ©todo Ã© bastante sensÃ­vel.
+     * @return andar em que o elevador estÃ¡ no momento
      */
     public int getAndar(){
         return andar;
@@ -89,12 +90,12 @@ public class Elevador {
     
     /**
      * Faz o elevador subir um andar imediatamente.
-     * O tempo é relativo na Arca de Noé, então subir com o elevador tem efeito
-     * imediato. A verificação nesse método lança uma exceção se o elevador
-     * tentar subir para um andar inválido (acima do limite da arca - andar 4).
-     * Além disso, o elevador não vai subir se o peso dos animais dentro dele
-     * exceder a capacidade máxima do elevador.
-     * @throws RuntimeException se o elevador tenta passar do último andar
+     * O tempo Ã© relativo na Arca de NoÃ©, entÃ£o subir com o elevador tem efeito
+     * imediato. A verificaÃ§Ã£o nesse mÃ©todo lanÃ§a uma exceÃ§Ã£o se o elevador
+     * tentar subir para um andar invÃ¡lido (acima do limite da arca - andar 4).
+     * AlÃ©m disso, o elevador nÃ£o vai subir se o peso dos animais dentro dele
+     * exceder a capacidade mÃ¡xima do elevador.
+     * @throws RuntimeException se o elevador tenta passar do Ãºltimo andar
      */
     public void subir() {
         if(andar < Arca.QUANTIDADE_DE_ANDARES_NA_ARCA - 1){
@@ -112,12 +113,12 @@ public class Elevador {
 
     /**
      * Faz o elevador descer um andar imediatamente.
-     * O tempo é relativo na Arca de Noé, então descer com o elevador tem efeito
-     * imediato. A verificação nesse método lança uma exceção se o elevador
-     * tentar descer para um andar inválido (abaixo do térreo - andar 0).
-     * Além disso, o elevador não vai descer se o peso dos animais dentro dele
-     * exceder a capacidade máxima do elevador.
-     * @throws RuntimeException se o elevador tenta descer abaixo do térreo
+     * O tempo Ã© relativo na Arca de NoÃ©, entÃ£o descer com o elevador tem efeito
+     * imediato. A verificaÃ§Ã£o nesse mÃ©todo lanÃ§a uma exceÃ§Ã£o se o elevador
+     * tentar descer para um andar invÃ¡lido (abaixo do tÃ©rreo - andar 0).
+     * AlÃ©m disso, o elevador nÃ£o vai descer se o peso dos animais dentro dele
+     * exceder a capacidade mÃ¡xima do elevador.
+     * @throws RuntimeException se o elevador tenta descer abaixo do tÃ©rreo
      */
     public void descer() {
         if(andar > 0){
@@ -134,26 +135,26 @@ public class Elevador {
     }
     
     /**
-     * Retorna se o elevador está cheio d'água.
-     * @return true se estiver inundado; false caso contrário
+     * Retorna se o elevador estÃ¡ cheio d'Ã¡gua.
+     * @return true se estiver inundado; false caso contrÃ¡rio
      */
     public boolean isCheioDeAgua() {
         return cheioDeAgua;
     }
 
     /**
-     * Enche o elevador d'água imediatamente.
-     * O tempo é relativo na Arca de Noé, então inundar o elevador tem efeito
-     * imediato. Se o elevador já estiver cheio, o método não faz nada.
+     * Enche o elevador d'Ã¡gua imediatamente.
+     * O tempo Ã© relativo na Arca de NoÃ©, entÃ£o inundar o elevador tem efeito
+     * imediato. Se o elevador jÃ¡ estiver cheio, o mÃ©todo nÃ£o faz nada.
      */
     public void encher() {
         cheioDeAgua = true;
     }
 
     /**
-     * Drena a água do elevador imediatamente.
-     * O tempo é relativo na Arca de Noé, então drenar o elevador tem efeito
-     * imediato. Se o elevador já estiver vazio, o método não faz nada.
+     * Drena a Ã¡gua do elevador imediatamente.
+     * O tempo Ã© relativo na Arca de NoÃ©, entÃ£o drenar o elevador tem efeito
+     * imediato. Se o elevador jÃ¡ estiver vazio, o mÃ©todo nÃ£o faz nada.
      */
     public void drenar() {
         cheioDeAgua = false;       
@@ -170,11 +171,11 @@ public class Elevador {
     /**
      * Modifica imediatamente a temperatura do ar-condicionado.
      * O ar-condicionado funciona entre 0 e 40 graus Celsius. Se a tentativa
-     * de mudança está dentro da faixa de funcionamento, ele altera o valor
-     * e retorna um indicador de sucesso. Se a tentativa está fora da faixa
-     * de funcionamento, ela nãotem efeito e retorna um indicador de fracasso.
+     * de mudanÃ§a estÃ¡ dentro da faixa de funcionamento, ele altera o valor
+     * e retorna um indicador de sucesso. Se a tentativa estÃ¡ fora da faixa
+     * de funcionamento, ela nÃ£otem efeito e retorna um indicador de fracasso.
      * @param novaTemperatura em graus Celsius entre 0 graus e 40 graus
-     * @return true se conseguiu modificar a temperatura; false caso contrário
+     * @return true se conseguiu modificar a temperatura; false caso contrÃ¡rio
      */
     public boolean setTemperaturaDoArCondicionado(int novaTemperatura){
         if(novaTemperatura >= 0 && novaTemperatura <= 40){

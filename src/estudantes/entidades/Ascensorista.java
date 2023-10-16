@@ -1,11 +1,6 @@
 package entidades;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 import professor.entidades.Andar;
-import professor.entidades.Arca;
 import professor.entidades.Elevador;
 
 /**
@@ -21,9 +16,6 @@ import professor.entidades.Elevador;
  * @version 1.0
  */
 public class Ascensorista {
-    private Elevador elevador;
-    private Andar andar;
-    private Animal animal;
 
     /**
      * Construtor padrão de Ascensorista.
@@ -32,15 +24,8 @@ public class Ascensorista {
      * ser alterado conforme a necessidade.
      */
     public Ascensorista() {
-
+        /* TODO: codificar */
     }
-
-    /*
-     * public Ascensorista(Elevador elevador, Andar andar) {
-     * this.elevador = elevador;
-     * this.andar = andar;
-     * }
-     */
 
     /**
      * Executa a lógica de controle do elevador e dos animais.
@@ -59,7 +44,6 @@ public class Ascensorista {
      * @param andar    o andar no qual o elevador está parado
      */
     public void agir(Elevador elevador, Andar andar) {
-        System.out.println("Início do método agir");
         while (andar.consultarTamanhoDaFila() > 0) { // Verifica se tem animais na fila do andar
             Animal animal = andar.chamarProximoDaFila(); // Pega o próximo animal na fila do andar
             String tipoAnimal = animal.getClass().getSimpleName(); // Verifica o tipo do animal
@@ -99,7 +83,7 @@ public class Ascensorista {
             int animaisEmbarcados = 0;
             elevador.embarcar(animal); // Embarca o animal no elevador
             pesoTotal += animal.getPeso(); // Atualiza o peso total com o peso do animal
-            animaisEmbarcados++;
+            animaisEmbarcados+=animaisEmbarcados;
 
             for (int i = 0; i < andar.checarFilaParaElevador().length; i++) {
                 if (andar.checarFilaParaElevador()[i] != animal) {
@@ -111,83 +95,28 @@ public class Ascensorista {
                         animaisEmbarcados++;
                     }
                 }
-                if (pesoTotal > elevador.LIMITE_DE_PESO) {
-                    break;
-                }
-
-            }
-
-            for (int i = 0; i < animaisEmbarcados; i++) {
-                if (elevador.getAndar() == 1) {
-                    elevador.subir();
-                } else {
-                    if (elevador.getAndar() < 2) {
-                     elevador.subir();   
-                    } else {
-                       if (elevador.getAndar() < 3) {
-                        elevador.subir();
-                       } else {
-                        if (elevador.getAndar() < 4) {
-                            elevador.subir();
-                        } else {
-                           if (elevador.getAndar() == 5) {
-                             elevador.descer();
-                            
-                           } 
-                        }
-                       } 
-                    }
-                    
-                }
-                /*if (elevador.getAndar() < 4) {
-                    elevador.subir(); // Move os animais para cima para embarcar.
-                }
-                if (elevador.getAndar() < 3) {
-                    elevador.subir(); // Move os animais para cima para embarcar.
-                }
-                if (elevador.getAndar() < 2) {
-                    elevador.subir(); // Move os animais para cima para embarcar.
-                }
-                if (elevador.getAndar() < 1) {
-                    elevador.subir(); // Move os animais para cima para embarcar.
-                }
-                if (elevador.getAndar() == 5) {
-                    elevador.descer(); // Move os animais para cima para embarcar.
-                }/* 
-                if (elevador.getAndar() == 5) {
-                    elevador.descer(); // Move os animais para baixo para desembarcar.
-                }*/
-
             }
 
             // Adicione o aumento de espera para todos os animais na fila após o embarque.
             // Obtém a fila de animais no andar
             Animal[] fila = andar.checarFilaParaElevador();
-
-            // Itera por todos os animais na fila e aplica o aumento de espera
-            for (Animal animalNaFila : fila) {
-                animalNaFila.aumentaEspera(andar);
+            if(elevador.getAndar() == animal.getAndarDesejado()){
+                andar.desembarcar(animal); // Remove o animal do andar
+                for (int i = 0; i < andar.checarFilaParaElevador().length; i++) {
+                    andar.desembarcar(andar.checarFilaParaElevador()[i]); // Remove outros animais que embarcaram junto
+                }
+                break;
+            }else{
+                // if(elevador.getAndar() <= animal.getAndarDesejado()){
+                if(elevador.getAndar() <= andar.getAndar()){
+                    elevador.subir();
+                    break;
+                }else{
+                    elevador.descer();
+                    break;
+                }
             }
-
-            andar.desembarcar(animal); // Remove o animal do andar
-
-            for (int i = 0; i < andar.checarFilaParaElevador().length; i++) {
-                andar.desembarcar(andar.checarFilaParaElevador()[i]); // Remove outros animais que embarcaram junto
-            }
+            
         }
-
-        System.out.println("Fim do método agir");
     }
-
-    /*public Animal clone() {
-        return new Animal(animal.getId(), animal.getNome(), animal.getEspecie(), animal.getAndarDesejado(),
-                animal.getPeso(), animal.getTemperaturaIdeal());
-    }*/
-   
-
-    // private Andar andar(int andar2) {
-    // return null;
-    // }
 }
-
-    

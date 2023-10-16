@@ -1,17 +1,16 @@
 package professor.gui;
 
+import entidades.Animal;
 import professor.entidades.Arca;
 import java.awt.Color;
 
-import entidades.Animal;
-
 /**
- * Simulador gráfico da arca de Noé.
+ * Simulador grÃ¡fico da arca de NoÃ©.
  * <br><br>
- * <strong>Não mexa aqui!!!</strong>
+ * <strong>NÃ£o mexa aqui!!!</strong>
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @version 1.1
  */
 public class Simulador extends javax.swing.JFrame {
 
@@ -20,8 +19,8 @@ public class Simulador extends javax.swing.JFrame {
     
     /**
      * Invoca o simulador de vida da arca.
-     * Esse método é um intermediário no contexto da interface gráfica com
-     * usuário para ser usado nas chamadas agendadas do Timer. Ele é necessário,
+     * Esse mÃ©todo Ã© um intermediÃ¡rio no contexto da interface grÃ¡fica com
+     * usuÃ¡rio para ser usado nas chamadas agendadas do Timer. Ele Ã© necessÃ¡rio,
      * embora seja indesejado.
      */
     public void simular(){
@@ -30,11 +29,11 @@ public class Simulador extends javax.swing.JFrame {
     
     /**
      * Atualiza os elementos na tela com base no estado da arca.
-     * Esse método é invocado pelo simulador da arca sempre que o estado
-     * atinge um ponto estável.
+     * Esse mÃ©todo Ã© invocado pelo simulador da arca sempre que o estado
+     * atinge um ponto estÃ¡vel.
      */
     public void atualizarInterface(){
-        //atualiza posição do elevador
+        //atualiza posiÃ§Ã£o do elevador
         int novoY = 400 - arca.getElevador().getAndar() * 100;
         elevador.setLocation(0, novoY);
         
@@ -57,19 +56,19 @@ public class Simulador extends javax.swing.JFrame {
                     label += a[j].getId() + " -> ";
                 }
                 switch(i){
-                    case 0 : labelAndar0.setText(label);
-                    case 1 : labelAndar1.setText(label);
-                    case 2 : labelAndar2.setText(label);
-                    case 3 : labelAndar3.setText(label);
-                    case 4 : labelAndar4.setText(label);
+                    case 0 -> labelAndar0.setText(label);
+                    case 1 -> labelAndar1.setText(label);
+                    case 2 -> labelAndar2.setText(label);
+                    case 3 -> labelAndar3.setText(label);
+                    case 4 -> labelAndar4.setText(label);
                 }
             }else{
                 switch(i){
-                    case 0 : labelAndar0.setText("vazio");
-                    case 1 : labelAndar1.setText("vazio");
-                    case 2 : labelAndar2.setText("vazio");
-                    case 3 : labelAndar3.setText("vazio");
-                    case 4 : labelAndar4.setText("vazio");
+                    case 0 -> labelAndar0.setText("vazio");
+                    case 1 -> labelAndar1.setText("vazio");
+                    case 2 -> labelAndar2.setText("vazio");
+                    case 3 -> labelAndar3.setText("vazio");
+                    case 4 -> labelAndar4.setText("vazio");
                 }
             }   
         }
@@ -85,8 +84,8 @@ public class Simulador extends javax.swing.JFrame {
     }
     
     /**
-     * Padrão de projeto Singleton para obter o simulador.
-     * @return instância única de Simulador
+     * PadrÃ£o de projeto Singleton para obter o simulador.
+     * @return instÃ¢ncia Ãºnica de Simulador
      */
     public static Simulador getInstancia(){
         if(instancia == null){

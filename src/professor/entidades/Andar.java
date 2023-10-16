@@ -1,28 +1,27 @@
 package professor.entidades;
 
 
+import entidades.Animal;
 import java.util.HashSet;
 import java.util.LinkedList;
-
-import entidades.Animal;
 
 /**
  * Classe que representa um andar da arca onde animais embarcam e desembarcam.
  * <br><br>
- * <strong>Não mexa aqui!!!</strong>
+ * <strong>NÃ£o mexa aqui!!!</strong>
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @version 1.1
  */
 public class Andar {
-    private int andar; //começa no 0
+    private int andar; //comeÃ§a no 0
     private LinkedList<Animal> filaParaElevador;
     private HashSet<Animal> animaisQueDesceram;
     
     /**
      * Construtor do andar.
-     * Ele sempre começa sem animais na fila e sem animais desembarcados.
-     * @param andar número do andar (0 é térreo)
+     * Ele sempre comeÃ§a sem animais na fila e sem animais desembarcados.
+     * @param andar nÃºmero do andar (0 Ã© tÃ©rreo)
      */
     public Andar(int andar){
         this.andar = andar;
@@ -31,8 +30,8 @@ public class Andar {
     }
     
     /**
-     * Retorna o número do andar
-     * @return andar (0 é térreo)
+     * Retorna o nÃºmero do andar
+     * @return andar (0 Ã© tÃ©rreo)
      */
     public int getAndar(){
         return andar;
@@ -40,11 +39,11 @@ public class Andar {
     
     /**
      * Inclui o animal no fim da fila de espera para pegar o elevador.
-     * Esse método é usado pelo simulador de vida da arca e não deveria ser
-     * invocado por outras classes. Como se trata de uma fila, o animal é sempre
-     * colocado no final e não é removido de nenhum outro lugar onde esteja.
+     * Esse mÃ©todo Ã© usado pelo simulador de vida da arca e nÃ£o deveria ser
+     * invocado por outras classes. Como se trata de uma fila, o animal Ã© sempre
+     * colocado no final e nÃ£o Ã© removido de nenhum outro lugar onde esteja.
      * @param animal o animal para ser colocado no final da fila (um valor null 
-     * será ignorado)
+     * serÃ¡ ignorado)
      */
     public void colocarNaFila(Animal animal){
         if(animal != null){
@@ -53,14 +52,14 @@ public class Andar {
     }
     
     /**
-     * Remove e retorna o animal de uma posição especificada da fila.
-     * A fila começa no primeiro animal (cabeça) que está na posição 0. Os
-     * demais elementos do fim da fila são reorganizados para ocuparem o espaço
-     * do animal que saiu sem deixar buracos. A verificação desse método lança 
-     * uma exceção quando se tenta tirar um animal de uma posição que não existe.
-     * @param posicao posição do animal na fila (o primeiro animal está em 0)
-     * @return o animal que ocupava a posição na fila
-     * @throws IndexOutOfBoundsException se a posição for menor que zero ou 
+     * Remove e retorna o animal de uma posiÃ§Ã£o especificada da fila.
+     * A fila comeÃ§a no primeiro animal (cabeÃ§a) que estÃ¡ na posiÃ§Ã£o 0. Os
+     * demais elementos do fim da fila sÃ£o reorganizados para ocuparem o espaÃ§o
+     * do animal que saiu sem deixar buracos. A verificaÃ§Ã£o desse mÃ©todo lanÃ§a 
+     * uma exceÃ§Ã£o quando se tenta tirar um animal de uma posiÃ§Ã£o que nÃ£o existe.
+     * @param posicao posiÃ§Ã£o do animal na fila (o primeiro animal estÃ¡ em 0)
+     * @return o animal que ocupava a posiÃ§Ã£o na fila
+     * @throws IndexOutOfBoundsException se a posiÃ§Ã£o for menor que zero ou 
      * igual ou maior ao tamanho da fila
      */
     public Animal tirarDaFila(int posicao){
@@ -68,23 +67,23 @@ public class Andar {
     }
     
     /**
-     * Remove a primeira ocorrência do animal especificado da fila.
-     * Os animais são comparados na fila pelo método equals(Object o). Apenas o
-     * primeiro elemeto encontrado (a ordem de busca é do início para o fim
-     * da fila) será removido se houver duplicatas na fila. Se a fila não 
-     * contém o animal, ela permanece inalterada.
+     * Remove a primeira ocorrÃªncia do animal especificado da fila.
+     * Os animais sÃ£o comparados na fila pelo mÃ©todo equals(Object o). Apenas o
+     * primeiro elemeto encontrado (a ordem de busca Ã© do inÃ­cio para o fim
+     * da fila) serÃ¡ removido se houver duplicatas na fila. Se a fila nÃ£o 
+     * contÃ©m o animal, ela permanece inalterada.
      * @param animal animal para ser removido
-     * @return true se o animal foi encontrado na fila; false caso contrário
+     * @return true se o animal foi encontrado na fila; false caso contrÃ¡rio
      */
     public boolean tirarDaFila(Animal animal){
         return filaParaElevador.remove(animal);
     }
     
     /**
-     * Remove e retorna o primeiro animal da fila (cabeça da fila).
-     * Esse método chama o próximo animal da fila, removendo ele quando for
+     * Remove e retorna o primeiro animal da fila (cabeÃ§a da fila).
+     * Esse mÃ©todo chama o prÃ³ximo animal da fila, removendo ele quando for
      * retornado.
-     * @return o animal que é primeiro (cabeça) da fila
+     * @return o animal que Ã© primeiro (cabeÃ§a) da fila
      */
     public Animal chamarProximoDaFila(){
         return filaParaElevador.poll();
@@ -92,14 +91,14 @@ public class Andar {
     
     /**
      * Devolve um vetor contendo todos os animais da fila para pegar o elevador.
-     * Os animais serão retornados no vetor na mesma ordem da fila. O uso
-     * desse vetor deve ser cuidadoso, pois os elementos são referências para
-     * os animais que também estão na fila, ou seja, modificar o estado
-     * interno de um animal do vetor causa modificação no mesmo animal na fila.
-     * Recomenda-se o uso do método clone() em um animal antes de manipular 
+     * Os animais serÃ£o retornados no vetor na mesma ordem da fila. O uso
+     * desse vetor deve ser cuidadoso, pois os elementos sÃ£o referÃªncias para
+     * os animais que tambÃ©m estÃ£o na fila, ou seja, modificar o estado
+     * interno de um animal do vetor causa modificaÃ§Ã£o no mesmo animal na fila.
+     * Recomenda-se o uso do mÃ©todo clone() em um animal antes de manipular 
      * seus dados para evitar efeito colateral.
      * @return vetor de animais na mesma ordem da fila (o animal da primeira
-     * posição da fila estará no índice 0 do vetor e assim por diante)
+     * posiÃ§Ã£o da fila estarÃ¡ no Ã­ndice 0 do vetor e assim por diante)
      */
     public Animal[] checarFilaParaElevador(){
         return filaParaElevador.toArray(Animal[]::new);
@@ -115,10 +114,10 @@ public class Andar {
     
     /**
      * Coloca um animal no grupo de animais que desembarcaram no andar.
-     * Esse método deve ser chamado pelo elevador para que um animal possa
+     * Esse mÃ©todo deve ser chamado pelo elevador para que um animal possa
      * sair do elevador e ser colocados junto de outros animais que desceram
      * do elevador nesse mesmo andar. 
-     * @param animal animal que desembarcou (um valor null será ignorado)
+     * @param animal animal que desembarcou (um valor null serÃ¡ ignorado)
      */
     public void desembarcar(Animal animal){
         if(animal != null){
@@ -128,14 +127,14 @@ public class Andar {
     
     /**
      * Devolve um vetor contendo todos os animais que desembarcaram nesse andar.
-     * Os animais não estarão em uma ordem definida (por exemplo, ordem em que
+     * Os animais nÃ£o estarÃ£o em uma ordem definida (por exemplo, ordem em que
      * desembarcaram), pois se misturaram com os demais quando desceram. O uso
-     * desse vetor deve ser cuidadoso, pois os elementos são referências para
-     * os animais que também estão no grupo de animais que desembarcaram, ou 
-     * seja, modificar o estado interno de um animal do vetor causa modificação 
-     * no mesmo animal do grupo no andar. Recomenda-se o uso do método clone() 
+     * desse vetor deve ser cuidadoso, pois os elementos sÃ£o referÃªncias para
+     * os animais que tambÃ©m estÃ£o no grupo de animais que desembarcaram, ou 
+     * seja, modificar o estado interno de um animal do vetor causa modificaÃ§Ã£o 
+     * no mesmo animal do grupo no andar. Recomenda-se o uso do mÃ©todo clone() 
      * em um animal antes de manipular seus dados para evitar efeito colateral.
-     * @return vetor de animais sem ordem pré-definida
+     * @return vetor de animais sem ordem prÃ©-definida
      */
     public Animal[] checarDesembarcados(){
         return animaisQueDesceram.toArray(Animal[]::new);
