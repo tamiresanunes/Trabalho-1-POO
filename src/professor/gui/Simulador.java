@@ -57,19 +57,19 @@ public class Simulador extends javax.swing.JFrame {
                     label += a[j].getId() + " -> ";
                 }
                 switch(i){
-                    case 0 -> labelAndar0.setText(label);
-                    case 1 -> labelAndar1.setText(label);
-                    case 2 -> labelAndar2.setText(label);
-                    case 3 -> labelAndar3.setText(label);
-                    case 4 -> labelAndar4.setText(label);
+                    case 0 : labelAndar0.setText(label);
+                    case 1 : labelAndar1.setText(label);
+                    case 2 : labelAndar2.setText(label);
+                    case 3 : labelAndar3.setText(label);
+                    case 4 : labelAndar4.setText(label);
                 }
             }else{
                 switch(i){
-                    case 0 -> labelAndar0.setText("vazio");
-                    case 1 -> labelAndar1.setText("vazio");
-                    case 2 -> labelAndar2.setText("vazio");
-                    case 3 -> labelAndar3.setText("vazio");
-                    case 4 -> labelAndar4.setText("vazio");
+                    case 0 : labelAndar0.setText("vazio");
+                    case 1 : labelAndar1.setText("vazio");
+                    case 2 : labelAndar2.setText("vazio");
+                    case 3 : labelAndar3.setText("vazio");
+                    case 4 : labelAndar4.setText("vazio");
                 }
             }   
         }
