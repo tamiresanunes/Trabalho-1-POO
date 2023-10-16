@@ -2,6 +2,9 @@ package entidades;
 
 /**
  * Classe Retil que é um tipo de animal
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public class Reptil extends Animal {
     /**

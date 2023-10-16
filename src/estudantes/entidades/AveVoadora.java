@@ -2,6 +2,9 @@ package entidades;
 
 /**
  * Classe AveVoadora que é um tipo de Ave, que por sua vez é um tipo de animal
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public class AveVoadora extends Ave {
     /**

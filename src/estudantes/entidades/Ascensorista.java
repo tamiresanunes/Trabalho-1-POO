@@ -13,7 +13,9 @@ import professor.entidades.Elevador;
  * método público deve ser "agir".
  * 
  * @author Jean Cheiran
- * @version 1.0
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.1
  */
 public class Ascensorista {
 
@@ -95,6 +97,53 @@ public class Ascensorista {
                         animaisEmbarcados++;
                     }
                 }
+                if (pesoTotal > elevador.LIMITE_DE_PESO) {
+                    break;
+                }
+
+            }
+
+            for (int i = 0; i < animaisEmbarcados; i++) {
+                if (elevador.getAndar() == 1) {
+                    elevador.subir();
+                } else {
+                    if (elevador.getAndar() < 2) {
+                     elevador.subir();   
+                    } else {
+                       if (elevador.getAndar() < 3) {
+                        elevador.subir();
+                       } else {
+                        if (elevador.getAndar() < 4) {
+                            elevador.subir();
+                        } else {
+                           if (elevador.getAndar() == 5) {
+                             elevador.descer();
+                            
+                           } 
+                        }
+                       } 
+                    }
+                    
+                }
+                /*if (elevador.getAndar() < 4) {
+                    elevador.subir(); // Move os animais para cima para embarcar.
+                }
+                if (elevador.getAndar() < 3) {
+                    elevador.subir(); // Move os animais para cima para embarcar.
+                }
+                if (elevador.getAndar() < 2) {
+                    elevador.subir(); // Move os animais para cima para embarcar.
+                }
+                if (elevador.getAndar() < 1) {
+                    elevador.subir(); // Move os animais para cima para embarcar.
+                }
+                if (elevador.getAndar() == 5) {
+                    elevador.descer(); // Move os animais para cima para embarcar.
+                }/* 
+                if (elevador.getAndar() == 5) {
+                    elevador.descer(); // Move os animais para baixo para desembarcar.
+                }*/
+
             }
 
             // Adicione o aumento de espera para todos os animais na fila após o embarque.

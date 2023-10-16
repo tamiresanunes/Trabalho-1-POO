@@ -3,6 +3,9 @@ package entidades;
 /**
  * Classe ReptilAquatico que é um tipo de Reptil, o qual por sua ve é um tipo de
  * animal
+ * @author Tamires Antunes Nunes
+ * @author Gabriela da Silva Ramires
+ * @version 1.0
  */
 public class ReptilAquatico extends Reptil {
     /**
